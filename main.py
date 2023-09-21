@@ -35,9 +35,11 @@ def submit_choices():
     file_path = file_entry.get()
     use_random_data = random_choice.get()
     selected_algorithm = algorithm_choice.get()
+    selected_mode = mode_choice.get()
 
     # Process user's choices here
     # check the users choices
+    # selected mode will not be checked it will just be given to the main function of the chosen algorithm class
     if file_path and use_random_data == "Yes":
         messagebox.showerror("Error", "Please only select one Data Source.")
         return
@@ -96,13 +98,24 @@ algorithm_label.pack(side="top")
 algorithm1.pack(side="top")
 algorithm2.pack(side="top")
 
+# Radio buttons for Mode selection
+mode_frame = tk.Frame(root)
+mode_label = tk.Label(algorithm_frame, text="Select Mode:")
+mode_choice = tk.StringVar(root, "Performance Optimized")
+mode1 = tk.Radiobutton(algorithm_frame, text="Performance Optimized", variable=algorithm_choice, value="optimized")
+mode2 = tk.Radiobutton(algorithm_frame, text="Visual Mode", variable=algorithm_choice, value="visual")
+
+mode_label.pack(side="top")
+mode1.pack(side="top")
+mode2.pack(side="top")
+
 # Submit button
 submit_button = tk.Button(root, text="Submit", command=submit_choices)
 
 # Pack widgets
 file_frame.pack(pady=10)
 random_frame.pack(pady=10)
-algorithm_frame.pack(pady=10)
+mode_frame.pack(pady=10)
 submit_button.pack(pady=10)
 
 root.mainloop()
