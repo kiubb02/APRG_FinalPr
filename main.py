@@ -32,6 +32,10 @@ def submit_choices():
         messagebox.showerror("Error", "Please only select one Data Source.")
         return
 
+    # firstly we generate the data
+
+    # then we check which algorithm was chosen and call this function
+
 
 #########################################
 #                                       #

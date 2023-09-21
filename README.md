@@ -29,3 +29,7 @@ Free choice of programming language
 The two Algorithms we have chosen to implement are:
 1. ....
 2. ....
+
+## Run the Application
+
+
