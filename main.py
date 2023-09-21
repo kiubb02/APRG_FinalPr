@@ -1,6 +1,6 @@
 #########################################
 #                                       #
-#              IMPRORTS                 #
+#               IMPORTS                 #
 #                                       #
 #########################################
 
@@ -100,10 +100,10 @@ algorithm2.pack(side="top")
 
 # Radio buttons for Mode selection
 mode_frame = tk.Frame(root)
-mode_label = tk.Label(algorithm_frame, text="Select Mode:")
+mode_label = tk.Label(mode_frame, text="Select Mode:")
 mode_choice = tk.StringVar(root, "Performance Optimized")
-mode1 = tk.Radiobutton(algorithm_frame, text="Performance Optimized", variable=algorithm_choice, value="optimized")
-mode2 = tk.Radiobutton(algorithm_frame, text="Visual Mode", variable=algorithm_choice, value="visual")
+mode1 = tk.Radiobutton(mode_frame, text="Performance Optimized", variable=mode_choice, value="optimized")
+mode2 = tk.Radiobutton(mode_frame, text="Visual Mode", variable=mode_choice, value="visual")
 
 mode_label.pack(side="top")
 mode1.pack(side="top")
@@ -115,6 +115,7 @@ submit_button = tk.Button(root, text="Submit", command=submit_choices)
 # Pack widgets
 file_frame.pack(pady=10)
 random_frame.pack(pady=10)
+algorithm_frame.pack(pady=10)
 mode_frame.pack(pady=10)
 submit_button.pack(pady=10)
 
