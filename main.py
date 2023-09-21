@@ -7,6 +7,9 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+# our imports for the algorithms used
+import algorithms.algo1 as a1
+import algorithms.algo2 as a2
 
 
 #########################################
