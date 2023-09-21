@@ -15,6 +15,16 @@ from tkinter import messagebox
 #                                       #
 #########################################
 
+def generate_data_rand():
+    data = 3
+    return data
+
+
+def generate_data_file(file):
+    data = 4
+    return data
+
+
 def browse_file():
     file_path = filedialog.askopenfilename()
     file_entry.delete(0, tk.END)
@@ -33,8 +43,16 @@ def submit_choices():
         return
 
     # firstly we generate the data
+    if file_path:
+        data = generate_data_file(file_path)
+    else:
+        data = generate_data_rand()
 
     # then we check which algorithm was chosen and call this function
+    if selected_algorithm == "Algorithm 1":
+        print("") # here will be a function call
+    else:
+        print("") # here will be a function call
 
 
 #########################################
