@@ -6,13 +6,14 @@
 
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
+
 
 #########################################
 #                                       #
 #             FUNCTIONS                 #
 #                                       #
 #########################################
-
 
 def browse_file():
     file_path = filedialog.askopenfilename()
@@ -23,17 +24,18 @@ def browse_file():
 def submit_choices():
     file_path = file_entry.get()
     use_random_data = random_choice.get()
-
-    # lets create a check => user cannot use random data and select a file
-
+    selected_algorithm = algorithm_choice.get()
 
     # Process user's choices here
-    print(f"File Path: {file_path}")
-    print(f"Use Random Data: {use_random_data}")
+    # check the users choices
+    if file_path and use_random_data == "Yes":
+        messagebox.showerror("Error", "Please only select one Data Source.")
+        return
+
 
 #########################################
 #                                       #
-#                 MAIN                  #
+#                  UI                   #
 #                                       #
 #########################################
 
@@ -61,7 +63,6 @@ random_label.pack(side="left")
 random_yes.pack(side="left")
 random_no.pack(side="left")
 
-
 # Radio buttons for algorithm selection
 algorithm_frame = tk.Frame(root)
 algorithm_label = tk.Label(algorithm_frame, text="Select Algorithm:")
@@ -83,4 +84,3 @@ algorithm_frame.pack(pady=10)
 submit_button.pack(pady=10)
 
 root.mainloop()
-
