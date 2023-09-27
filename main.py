@@ -7,6 +7,8 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+# random is needed for randomly generating n amounts of (x,y) Coordinates
+import random
 # our imports for the algorithms used
 import algorithms.algo1 as a1
 import algorithms.algo2 as a2
@@ -19,8 +21,12 @@ import algorithms.algo2 as a2
 #########################################
 
 def generate_data_rand():
-    data = 3
-    return data
+    points = []
+    for _ in range(20): # TODO: Set another number => are 20 points enough ?
+        x = random.uniform(0, 100)  # Generate a random x coordinate between 0 and 100
+        y = random.uniform(0, 100)  # Generate a random y coordinate between 0 and 100
+        points.append((x, y))
+    return points
 
 
 def generate_data_file(file):
@@ -55,9 +61,9 @@ def submit_choices():
 
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Algorithm 1":
-        print("") # here will be a function call
+        print("Algorithm 1 was chosen") # here will be a function call
     else:
-        print("") # here will be a function call
+        print("Algorithm 2 was chosen") # here will be a function call
 
 
 #########################################
