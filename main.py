@@ -21,17 +21,31 @@ import algorithms.algo2 as a2
 #########################################
 
 def generate_data_rand():
-    points = []
+    coordinates = []
     for _ in range(20): # TODO: Set another number => are 20 points enough ?
         x = random.uniform(0, 100)  # Generate a random x coordinate between 0 and 100
         y = random.uniform(0, 100)  # Generate a random y coordinate between 0 and 100
-        points.append((x, y))
-    return points
+        coordinates.append((x, y))
+    return coordinates
 
 
 def generate_data_file(file):
-    data = 4
-    return data
+    # assuming we get a simple txt file
+    # firstly open thefile in mode "r" ... r = read
+    with open(file, 'r') as file:
+        lines = file.readlines()
+
+    # get the number of points => split the first line and get the last element which would be the number of points
+    # idk if we will need it for now I commented it out
+    # num_points = int(lines[0].split()[-1])
+    coordinates = []
+    for line in lines[1:]:
+        parts = line.strip().split(':')
+        index = int(parts[0])
+        x, y = map(int, parts[1].strip().split(','))
+        coordinates.append((x, y))
+
+    return coordinates
 
 
 def browse_file():
