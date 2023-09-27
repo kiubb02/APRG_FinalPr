@@ -73,6 +73,7 @@ def submit_choices():
         data = generate_data_file(file_path)
     else:
         data = generate_data_rand()
+    # data is always an array of tuples meaning it looks the following: [(2.2, 3.3), (4.5,2.3), ...]
 
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Algorithm 1":
