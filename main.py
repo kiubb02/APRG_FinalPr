@@ -23,8 +23,9 @@ import algorithms.algo2 as a2
 def generate_data_rand():
     coordinates = []
     for _ in range(20): # TODO: Set another number => are 20 points enough ?
-        x = random.uniform(0, 100)  # Generate a random x coordinate between 0 and 100
-        y = random.uniform(0, 100)  # Generate a random y coordinate between 0 and 100
+        # generate them in floats
+        x = random.uniform(0.0, 100.0)  # Generate a random x coordinate between 0 and 100
+        y = random.uniform(0.0, 100.0)  # Generate a random y coordinate between 0 and 100
         coordinates.append((x, y))
     return coordinates
 
