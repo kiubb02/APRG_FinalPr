@@ -43,7 +43,7 @@ class QuickHull:
         if self.visualize:
             self.plot_hull()
 
-        return self.hull
+        messagebox.showinfo("Results", f"Convex Hull: {self.hull}")
 
     def quickhull(self, p1, p2, point_set):
         if not point_set:
