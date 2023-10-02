@@ -11,7 +11,7 @@ from tkinter import messagebox
 import random
 # our imports for the algorithms used
 import algorithms.algo1 as a1
-import algorithms.algo2 as a2
+import algorithms.quickhull as qh
 
 
 #########################################
@@ -78,7 +78,6 @@ def submit_choices():
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Algorithm 1":
         print("Algorithm 1 was chosen") # here will be a function call
-        algo = a1.AlgorithmOne(data)
     else:
         print("Algorithm 2 was chosen") # here will be a function call
 

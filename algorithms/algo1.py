@@ -3,3 +3,5 @@ class AlgorithmOne:
     def __init__(self, data):
         self.coordinates = data
 
+
+
