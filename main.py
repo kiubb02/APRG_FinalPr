@@ -76,10 +76,11 @@ def submit_choices():
     # data is always an array of tuples meaning it looks the following: [(2.2, 3.3), (4.5,2.3), ...]
 
     # then we check which algorithm was chosen and call this function
-    if selected_algorithm == "Algorithm 1":
-        print("Algorithm 1 was chosen") # here will be a function call
+    if selected_algorithm == "Gift Wrapping":
+        print("Gift Wrapping was chosen") # here will be a function call
     else:
-        print("Algorithm 2 was chosen") # here will be a function call
+        print("Quick Hull was chosen") # here will be a function call
+        qh_ = qh.QuickHull(data, selected_mode)
 
 
 #########################################
@@ -115,9 +116,9 @@ random_no.pack(side="left")
 # Radio buttons for algorithm selection
 algorithm_frame = tk.Frame(root)
 algorithm_label = tk.Label(algorithm_frame, text="Select Algorithm:")
-algorithm_choice = tk.StringVar(root, "Algorithm 1")
-algorithm1 = tk.Radiobutton(algorithm_frame, text="Algorithm 1", variable=algorithm_choice, value="Algorithm 1")
-algorithm2 = tk.Radiobutton(algorithm_frame, text="Algorithm 2", variable=algorithm_choice, value="Algorithm 2")
+algorithm_choice = tk.StringVar(root, "Gift Wrapping")
+algorithm1 = tk.Radiobutton(algorithm_frame, text="Gift Wrapping", variable=algorithm_choice, value="Gift Wrapping")
+algorithm2 = tk.Radiobutton(algorithm_frame, text="Quickhull", variable=algorithm_choice, value="Quickhull")
 
 algorithm_label.pack(side="top")
 algorithm1.pack(side="top")
@@ -127,8 +128,8 @@ algorithm2.pack(side="top")
 mode_frame = tk.Frame(root)
 mode_label = tk.Label(mode_frame, text="Select Mode:")
 mode_choice = tk.StringVar(root, "Performance Optimized")
-mode1 = tk.Radiobutton(mode_frame, text="Performance Optimized", variable=mode_choice, value="optimized")
-mode2 = tk.Radiobutton(mode_frame, text="Visual Mode", variable=mode_choice, value="visual")
+mode1 = tk.Radiobutton(mode_frame, text="Performance Optimized", variable=mode_choice, value=False)
+mode2 = tk.Radiobutton(mode_frame, text="Visual Mode", variable=mode_choice, value=True)
 
 mode_label.pack(side="top")
 mode1.pack(side="top")
