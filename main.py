@@ -83,6 +83,7 @@ def submit_choices():
     else:
         print("Quick Hull was chosen") # here will be a function call
         qh_ = qh.QuickHull(data, selected_mode)
+        qh_.find_hull()
 
 
 #########################################

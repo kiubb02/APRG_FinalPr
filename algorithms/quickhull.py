@@ -11,12 +11,12 @@ class QuickHull:
         self.points = points
         self.hull = []
         # we need that to know if we will use visualization or not
-        self.modus = visualize  # is either True or False
+        self.visualize = visualize  # is either True or False
         # everything we need for the plot
-        self.fig = plt.figure()
-        self.ax = self.fig.add_subplot(111, projection='scatter')
-        self.sc = self.ax.scatter(*zip(*self.points))
-        self.anim = None
+        # self.fig = plt.figure()
+        # self.ax = self.fig.add_subplot(111, projection='scatter')
+        # self.sc = self.ax.scatter(*zip(*self.points))
+        # self.anim = None
 
     def find_hull(self):
         start_time = time.time()
@@ -49,7 +49,8 @@ class QuickHull:
 
         # see if we want to visualize or not
         if self.visualize:
-            self.plot_hull()
+            print("Plot started")
+            # self.plot_hull()
 
         messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
 
@@ -98,6 +99,7 @@ class QuickHull:
         return abs((p2[1] - p1[1]) * p3[0] + (p1[0] - p2[0]) * p3[1] + (p2[0] * p1[1] - p1[0] * p2[1])) / \
             ((p2[1] - p1[1]) ** 2 + (p1[0] - p2[0]) ** 2) ** 0.5
 
+    """
     def plot_hull(self):
         def animate(i):
             if i < len(self.hull):
@@ -106,3 +108,4 @@ class QuickHull:
 
         self.anim = FuncAnimation(self.fig, animate, frames=len(self.hull), interval=500, repeat=False)
         plt.show()
+    """
