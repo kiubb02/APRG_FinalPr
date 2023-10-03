@@ -5,6 +5,7 @@ from tkinter import messagebox
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import time
+from helpers.geometry import Geometry
 
 
 class QuickHull:
@@ -35,9 +36,9 @@ class QuickHull:
         left_set = []
         right_set = []
         for point in self.points:
-            if self.orientation(leftmost, rightmost, point) == -1:
+            if Geometry.orientation_qh(leftmost, rightmost, point) == -1:
                 left_set.append(point)
-            elif self.orientation(leftmost, rightmost, point) == 1:
+            elif Geometry.orientation_qh(leftmost, rightmost, point) == 1:
                 right_set.append(point)
 
         # Recursively find convex hulls of the two sets
@@ -61,7 +62,7 @@ class QuickHull:
         farthest_point = None
 
         for point in point_set:
-            d = self.distance(p1, p2, point)
+            d = Geometry.distance(p1, p2, point)
             if d > max_distance:
                 max_distance = d
                 farthest_point = point
@@ -72,9 +73,9 @@ class QuickHull:
         left_set = []
         right_set = []
         for point in point_set:
-            if self.orientation(p1, farthest_point, point) == 1:
+            if Geometry.orientation_qh(p1, farthest_point, point) == 1:
                 left_set.append(point)
-            elif self.orientation(farthest_point, p2, point) == 1:
+            elif Geometry.orientation_qh(farthest_point, p2, point) == 1:
                 right_set.append(point)
 
         self.quickhull(p1, farthest_point, left_set)
@@ -86,17 +87,6 @@ class QuickHull:
     #                                                            #
     ##############################################################
 
-    @staticmethod
-    def orientation(p, q, r):
-        val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
-        if val == 0:
-            return 0  # Collinear
-        return 1 if val > 0 else -1  # Clockwise or Counterclockwise
-
-    @staticmethod
-    def distance(p1, p2, p3):
-        return abs((p2[1] - p1[1]) * p3[0] + (p1[0] - p2[0]) * p3[1] + (p2[0] * p1[1] - p1[0] * p2[1])) / \
-            ((p2[1] - p1[1]) ** 2 + (p1[0] - p2[0]) ** 2) ** 0.5
 
     """"
 
