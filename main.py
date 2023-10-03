@@ -10,7 +10,7 @@ from tkinter import messagebox
 # random is needed for randomly generating n amounts of (x,y) Coordinates
 import random
 # our imports for the algorithms used
-import algorithms.jarvismarch as jm
+import algorithms.giftwrapping as jm
 import algorithms.quickhull as qh
 
 
@@ -78,7 +78,7 @@ def submit_choices():
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Gift Wrapping":
         print("Gift Wrapping was chosen") # here will be a function call
-        jm_ = jm.JarvisMarch(data)
+        jm_ = jm.GiftWrapping(data)
         jm_.convex_hull()
     else:
         print("Quick Hull was chosen") # here will be a function call

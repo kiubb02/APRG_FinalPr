@@ -47,7 +47,7 @@ Libraries used:
 
 Other dependencies (made from the dev team):
 - algorithms.quickhull
-- algorithms.jarvismarch
+- algorithms.giftwrapping
 - helpers.geometry
 
 ### SetUp

@@ -11,7 +11,7 @@ from tkinter import messagebox
 import time
 
 
-class JarvisMarch:
+class GiftWrapping:
     def __init__(self, points):
         # Initialize the object with a list of points and the number of points
         self.points = points

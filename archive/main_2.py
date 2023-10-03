@@ -8,7 +8,7 @@ Created on Fri Sep 29 13:35:29 2023
 import csv
 import time
 import numpy as np
-from algorithms.jarvismarch import JarvisMarch
+from algorithms.giftwrapping import GiftWrapping
 from tabulate import tabulate
 
 def main():
@@ -24,7 +24,7 @@ def main():
         print(f"Generated {num_points} random points.")  # print number of random points generated
 
         # Create JarvisMarch object using generated points
-        jm = JarvisMarch(points)
+        jm = GiftWrapping(points)
 
         # Start the timer
         start_time = time.time()
