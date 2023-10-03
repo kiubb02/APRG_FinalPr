@@ -35,7 +35,7 @@ The two Algorithms we have chosen to implement are:
 - algorithms (folder): A folder including both algorithms coded in a python class
 - archive (folder): not needed for execution , includes old code
 - helpers (folder): includes the geometry.py file with helper functions needed for the Algorithms
-- setup (folder): folder holding files needed to setup and build the code accordingly
+- setup (folder): folder holding files needed to set up and build the code accordingly
 
 ## Run the Application
 
@@ -51,6 +51,16 @@ Other dependencies (made from the dev team):
 - helpers.geometry
 
 ### SetUp
-1. Install the above Libraries under the point "Libraries used", can also be done by the requirements.txt which lays in the setup folder
+
+You can either set up the code by building and running it yourself or simply run the executable **convex_hull.exe**
+
+#### In IDE
+1. Install the above Libraries under the point "Libraries used", can also be done by the requirements.txt which is located in the setup folder
+        ```pip install -r requirements.txt```
 2. Download or Clone the Repository
+        ```git clone https://github.com/kiubb02/APRG_FinalPr.git```
+3. Build the code ```python setup.py build```
+4. Run the code ```python main.py```
+
+
 
