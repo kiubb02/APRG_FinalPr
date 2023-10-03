@@ -13,10 +13,9 @@ class QuickHull:
         # we need that to know if we will use visualization or not
         self.visualize = visualize  # is either True or False
         # everything we need for the plot
-        # self.fig = plt.figure()
-        # self.ax = self.fig.add_subplot(111, projection='scatter')
-        # self.sc = self.ax.scatter(*zip(*self.points))
-        # self.anim = None
+        self.fig, self.ax = plt.subplots()
+        self.sc = self.ax.scatter(*zip(*self.points))
+        self.anim = None
 
     def find_hull(self):
         start_time = time.time()
@@ -49,8 +48,7 @@ class QuickHull:
 
         # see if we want to visualize or not
         if self.visualize:
-            print("Plot started")
-            # self.plot_hull()
+            print("Plot the Animation")
 
         messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
 
@@ -99,13 +97,36 @@ class QuickHull:
         return abs((p2[1] - p1[1]) * p3[0] + (p1[0] - p2[0]) * p3[1] + (p2[0] * p1[1] - p1[0] * p2[1])) / \
             ((p2[1] - p1[1]) ** 2 + (p1[0] - p2[0]) ** 2) ** 0.5
 
-    """
-    def plot_hull(self):
-        def animate(i):
-            if i < len(self.hull):
-                self.sc.set_offsets(self.hull[i])
-            return self.sc,
 
-        self.anim = FuncAnimation(self.fig, animate, frames=len(self.hull), interval=500, repeat=False)
+    """"
+
+    def plot_hull(self):
+        lines = []
+        for i in range(len(self.hull) - 1):
+            lines.append([(self.hull[i][0], self.hull[i+1][0]), (self.hull[i][1], self.hull[i+1][1])])
+        lines.append([(self.hull[-1][0], self.hull[0][0]), (self.hull[-1][1], self.hull[0][1])])
+
+        self.lines = [self.ax.plot(line[0], line[1], color='red')[0] for line in lines]
+
+        self.sc = self.ax.scatter(*zip(*self.points), color='blue', label='Data Points')
+        self.ax.legend()
+
+        plt.draw()
+        plt.pause(0.001)
+
+        for i in range(len(self.hull)):
+            self.sc.set_offsets(self.hull[i])
+            for line in self.lines:
+                line.set_visible(True)
+            plt.draw()
+
+            # Wait for user input to navigate the animation
+            while True:
+                event = plt.waitforbuttonpress()
+                if event:
+                    break
+
         plt.show()
+        
     """
+
