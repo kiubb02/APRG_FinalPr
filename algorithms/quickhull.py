@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-
+import time
 
 class QuickHull:
     def __init__(self, points, visualize):
@@ -19,8 +19,13 @@ class QuickHull:
         self.anim = None
 
     def find_hull(self):
+        start_time = time.time()
+
         if len(self.points) < 3:
-            return self.points
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
+            return
 
         # Find the leftmost and rightmost points
         leftmost = min(self.points)
@@ -39,11 +44,14 @@ class QuickHull:
         self.quickhull(leftmost, rightmost, left_set)
         self.quickhull(rightmost, leftmost, right_set)
 
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+
         # see if we want to visualize or not
         if self.visualize:
             self.plot_hull()
 
-        messagebox.showinfo("Results", f"Convex Hull: {self.hull}")
+        messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
 
     def quickhull(self, p1, p2, point_set):
         if not point_set:
