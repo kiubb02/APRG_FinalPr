@@ -10,7 +10,7 @@ from tkinter import messagebox
 # random is needed for randomly generating n amounts of (x,y) Coordinates
 import random
 # our imports for the algorithms used
-import algorithms.algo1 as a1
+import algorithms.jarvismarch as jm
 import algorithms.quickhull as qh
 
 
@@ -32,7 +32,7 @@ def generate_data_rand():
 
 def generate_data_file(file):
     # assuming we get a simple txt file
-    # firstly open thefile in mode "r" ... r = read
+    # firstly open the file in mode "r" ... r = read
     with open(file, 'r') as file:
         lines = file.readlines()
 
@@ -78,6 +78,8 @@ def submit_choices():
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Gift Wrapping":
         print("Gift Wrapping was chosen") # here will be a function call
+        jm_ = jm.JarvisMarch(data)
+        jm_.convex_hull()
     else:
         print("Quick Hull was chosen") # here will be a function call
         qh_ = qh.QuickHull(data, selected_mode)
