@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import time
 
+
 class QuickHull:
     def __init__(self, points, visualize):
         self.points = points
@@ -97,7 +98,6 @@ class QuickHull:
         return abs((p2[1] - p1[1]) * p3[0] + (p1[0] - p2[0]) * p3[1] + (p2[0] * p1[1] - p1[0] * p2[1])) / \
             ((p2[1] - p1[1]) ** 2 + (p1[0] - p2[0]) ** 2) ** 0.5
 
-
     """"
 
     def plot_hull(self):
@@ -129,4 +129,3 @@ class QuickHull:
         plt.show()
         
     """
-
