@@ -78,7 +78,7 @@ def submit_choices():
     # then we check which algorithm was chosen and call this function
     if selected_algorithm == "Gift Wrapping":
         print("Gift Wrapping was chosen") # here will be a function call
-        jm_ = jm.GiftWrapping(data)
+        jm_ = jm.GiftWrapping(data, selected_mode)
         jm_.convex_hull()
     else:
         print("Quick Hull was chosen") # here will be a function call
@@ -131,8 +131,8 @@ algorithm2.pack(side="top")
 mode_frame = tk.Frame(root)
 mode_label = tk.Label(mode_frame, text="Select Mode:")
 mode_choice = tk.StringVar(root, "Performance Optimized")
-mode1 = tk.Radiobutton(mode_frame, text="Performance Optimized", variable=mode_choice, value=False)
-mode2 = tk.Radiobutton(mode_frame, text="Visual Mode", variable=mode_choice, value=True)
+mode1 = tk.Radiobutton(mode_frame, text="Performance Optimized", variable=mode_choice, value="optimized")
+mode2 = tk.Radiobutton(mode_frame, text="Visual Mode", variable=mode_choice, value="visual")
 
 mode_label.pack(side="top")
 mode1.pack(side="top")

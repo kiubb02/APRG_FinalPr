@@ -49,8 +49,9 @@ class QuickHull:
         elapsed_time = end_time - start_time
 
         # see if we want to visualize or not
-        if self.visualize:
+        if self.visualize == "visual":
             print("Plot the Animation")
+            self._animate_quickhull(self.hull)
 
         messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
 
@@ -86,6 +87,23 @@ class QuickHull:
     #                      HELPER FUNCTIONS                      #
     #                                                            #
     ##############################################################
+
+    def _animate_quickhull(self, hull):
+        if not hull:
+            return
+
+        for i in range(len(hull)):
+            if i == len(hull) - 1:
+                # Draw the last edge connecting the last point to the first point
+                x_edge = [hull[i][0], hull[0][0]]
+                y_edge = [hull[i][1], hull[0][1]]
+            else:
+                # Draw edges between consecutive points in the hull
+                x_edge = [hull[i][0], hull[i + 1][0]]
+                y_edge = [hull[i][1], hull[i + 1][1]]
+
+            self.ax.plot(x_edge, y_edge, color='red')
+            plt.pause(0.5)  # Pause briefly to show each step of the algorithm
 
     """"
 
