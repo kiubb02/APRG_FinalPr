@@ -52,7 +52,8 @@ Other dependencies (made from the dev team):
 
 ### SetUp
 
-You can either set up the code by building and running it yourself or simply run the executable **convex_hull.exe**
+You can either set up the code by building and running it yourself or simply run the executable **dist/main.exe**
+HINT: This exe is still in work
 
 #### In IDE
 1. Download or Clone the Repository
