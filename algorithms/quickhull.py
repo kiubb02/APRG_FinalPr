@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import time
 from helpers.geometry import Geometry
+from visualization.quickhull_visualization import VisualizationQuickhull
 
 
 class QuickHull:
@@ -50,6 +51,9 @@ class QuickHull:
 
         # see if we want to visualize or not
         if self.visualize:
+            visualizer = VisualizationQuickhull(self.points)
+            visualizer.visualize_quickhull(self.quickhull)
+
             print("Plot the Animation")
 
         messagebox.showinfo("Results", f"Convex Hull: {self.hull}\nTime taken: {elapsed_time} seconds.")
@@ -88,7 +92,7 @@ class QuickHull:
     ##############################################################
 
 
-    """"
+
 
     def plot_hull(self):
         lines = []
@@ -118,4 +122,4 @@ class QuickHull:
 
         plt.show()
         
-    """
+
