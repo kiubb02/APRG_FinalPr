@@ -55,12 +55,11 @@ Other dependencies (made from the dev team):
 You can either set up the code by building and running it yourself or simply run the executable **convex_hull.exe**
 
 #### In IDE
-1. Install the above Libraries under the point "Libraries used", can also be done by the requirements.txt which is located in the setup folder
-        ```pip install -r requirements.txt```
-2. Download or Clone the Repository
+1. Download or Clone the Repository
         ```git clone https://github.com/kiubb02/APRG_FinalPr.git```
-3. Build the code ```python setup.py build```
-4. Run the code ```python main.py```
+2. Install the above Libraries under the point "Libraries used", can also be done by the requirements.txt which is located in the setup folder
+        ```pip install -r setup/requirements.txt```
+3. Run the code ```python main.py```
 
 
 
