@@ -53,7 +53,7 @@ Other dependencies (made from the dev team):
 ### SetUp
 
 You can either set up the code by building and running it yourself or simply run the executable **output/main.exe**
-HINT: **BEFORE RUNNING THE EXE MAKE SURE EVERYTHING REQUIRED IS INSTALL, see: step 2**
+HINT: **BEFORE RUNNING THE EXE MAKE SURE EVERYTHING REQUIRED IS INSTALLED AND THE WHOLE PROJECT IS DOWNLOADED FROM THE GIT, see: step 2**
 
 #### In IDE
 1. Download or Clone the Repository
