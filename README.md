@@ -27,7 +27,7 @@ Free choice of programming language
 ### Our Solution:
 
 The two Algorithms we have chosen to implement are:
-1. Quickhull
+1. Andrews Algorithm
 2. Gift Wrapping
 
 ## Code Structure

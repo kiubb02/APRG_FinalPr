@@ -79,6 +79,7 @@ class GiftWrapping:
 
         # print the convex hull in a message box
         messagebox.showinfo("Results", f"Convex Hull: {hull}\nTime taken: {elapsed_time} seconds.")
+        print(hull)
 
     def _animate_giftwrapping(self, hull):
         if not hull:

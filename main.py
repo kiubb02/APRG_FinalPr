@@ -11,7 +11,7 @@ from tkinter import messagebox
 import random
 # our imports for the algorithms used
 import algorithms.giftwrapping as jm
-import algorithms.quickhull as qh
+import algorithms.andrews as qh
 
 
 #########################################
@@ -93,9 +93,9 @@ def submit_choices():
         jm_ = jm.GiftWrapping(data, selected_mode)
         jm_.convex_hull()
     else:
-        print("Quick Hull was chosen") # here will be a function call
-        qh_ = qh.QuickHull(data, selected_mode)
-        qh_.find_hull()
+        print("Andrews was chosen") # here will be a function call
+        qh_ = qh.AndrewsAlgorithm(data, selected_mode)
+        qh_.convex_hull_andrew()
 
 
 #########################################
@@ -133,7 +133,7 @@ algorithm_frame = tk.Frame(root)
 algorithm_label = tk.Label(algorithm_frame, text="Select Algorithm:")
 algorithm_choice = tk.StringVar(root, "Gift Wrapping")
 algorithm1 = tk.Radiobutton(algorithm_frame, text="Gift Wrapping", variable=algorithm_choice, value="Gift Wrapping")
-algorithm2 = tk.Radiobutton(algorithm_frame, text="Quickhull", variable=algorithm_choice, value="Quickhull")
+algorithm2 = tk.Radiobutton(algorithm_frame, text="Andrews Algorithm", variable=algorithm_choice, value="Andrews")
 
 algorithm_label.pack(side="top")
 algorithm1.pack(side="top")
