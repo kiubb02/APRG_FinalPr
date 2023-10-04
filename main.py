@@ -30,6 +30,18 @@ def generate_data_rand():
     return coordinates
 
 
+def generate_file():
+    n = 200
+    file_name = "files/input_points.txt"
+
+    with open(file_name, 'w') as file:
+        file.write(f"Number of points: {n}\n")
+        for i in range(1, n + 1):
+            x = random.uniform(0, 100)  # Adjust the range as needed
+            y = random.uniform(0, 100)  # Adjust the range as needed
+            file.write(f"{i}: {x},{y}\n")
+
+
 def generate_data_file(file):
     # assuming we get a simple txt file
     # firstly open the file in mode "r" ... r = read
@@ -43,7 +55,7 @@ def generate_data_file(file):
     for line in lines[1:]:
         parts = line.strip().split(':')
         index = int(parts[0])
-        x, y = map(int, parts[1].strip().split(','))
+        x, y = map(float, parts[1].strip().split(','))
         coordinates.append((x, y))
 
     return coordinates
@@ -138,6 +150,9 @@ mode_label.pack(side="top")
 mode1.pack(side="top")
 mode2.pack(side="top")
 
+# generate data points file button
+file_button = tk.Button(root, text="Generate Data File", command=generate_file)
+
 # Submit button
 submit_button = tk.Button(root, text="Submit", command=submit_choices)
 
@@ -147,5 +162,6 @@ random_frame.pack(pady=10)
 algorithm_frame.pack(pady=10)
 mode_frame.pack(pady=10)
 submit_button.pack(pady=10)
+file_button.pack(pady=10)
 
 root.mainloop()
