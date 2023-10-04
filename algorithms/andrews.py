@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 import matplotlib.pyplot as plt
 import time
+from helpers.geometry import Geometry
 
 
 class AndrewsAlgorithm:
@@ -13,12 +14,6 @@ class AndrewsAlgorithm:
         self.fig, self.ax = plt.subplots()
         self.sc = self.ax.scatter(*zip(*self.points))
         self.anim = None
-
-    def orientation(self, p, q, r):
-        val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
-        if val == 0:
-            return 0  # Collinear
-        return 1 if val > 0 else -1  # Clockwise or Counterclockwise
 
     def convex_hull_andrew(self):
         start_time = time.time()
@@ -32,13 +27,13 @@ class AndrewsAlgorithm:
 
         lower_hull = []
         for p in self.points:
-            while len(lower_hull) >= 2 and self.orientation(lower_hull[-2], lower_hull[-1], p) != -1:
+            while len(lower_hull) >= 2 and Geometry.orientation_andrews(lower_hull[-2], lower_hull[-1], p) != -1:
                 lower_hull.pop()
             lower_hull.append(p)
 
         upper_hull = []
         for p in reversed(self.points):
-            while len(upper_hull) >= 2 and self.orientation(upper_hull[-2], upper_hull[-1], p) != -1:
+            while len(upper_hull) >= 2 and Geometry.orientation_andrews(upper_hull[-2], upper_hull[-1], p) != -1:
                 upper_hull.pop()
             upper_hull.append(p)
 

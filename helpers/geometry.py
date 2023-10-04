@@ -8,6 +8,12 @@ Created on Fri Sep 29 13:30:04 2023
 
 
 class Geometry:
+    @staticmethod
+    def orientation_andrews(p, q, r):
+        val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
+        if val == 0:
+            return 0  # Collinear
+        return 1 if val > 0 else -1  # Clockwise or Counterclockwise
 
     @staticmethod
     def left_index(points):
